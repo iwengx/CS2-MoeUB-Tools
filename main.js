@@ -30,139 +30,176 @@
           <span>服务器列表</span>
           <a href="https://csgo.moeub.cn/server" target="_blank">csgo.moeub.cn/server</a>
         </div>
-         <div class="iwengx-content-desc">
+        <div class="iwengx-content-desc">
           <span>试试换饰品吧</span>
           <a href="https://next.moeub.cn/cs2" target="_blank">next.moeub.cn/cs2</a>
+        </div>
+        <div class="iwengx-content-skin">
+          <div class="iwengx-content-skin-title" id="iwengxContentSkinTitle">饰品代码（Ctrl + Alt + C 快速复制代码）</div>
+          <textarea id="iwengxSkinCode" class="iwengx-skin-code" placeholder="鼠标移动到饰品图片上自动生成代码" row="5" spellcheck="false"></textarea>
         </div>
       </div>
     </div>`;
 
   const operationWindowCSS = `.iwengx-float-window {
-        position: fixed;
-        width: 320px;
-        height: 240px;
-        background: white;
-        border-radius: 12px;
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-        overflow: hidden;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        z-index: 1000;
-      }
-      .iwengx-float-window.dragging {
-        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
-        transform: scale(1.02);
-        transition: box-shadow 0.2s ease, transform 0.2s ease;
-      }
-      .iwengx-float-window.iwengx-minimized {
-        width: 45px;
-        height: 45px;
-        border-radius: 50%;
-      }
-      .iwengx-float-window a {
-        color: inherit;
-      }
-      .iwengx-float-window a:visited {
-        color: inherit;
-      }
-      .iwengx-window-header {
-        background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-        color: white;
-        padding: 12px 16px;
-        cursor: move;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        position: relative;
-        transition: all 0.3s ease;
-      }
-      .iwengx-window-header:hover {
-        background: linear-gradient(135deg, #43a3f5 0%, #00e8f5 100%);
-      }
-      .iwengx-minimized .iwengx-window-header {
-        padding: 0;
-        height: 45px;
-        justify-content: center;
-        border-radius: 50%;
-      }
-      .iwengx-window-title {
-        font-weight: 600;
-        font-size: 14px;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        transition: all 0.3s ease;
-      }
-      .iwengx-minimized .iwengx-window-title {
-        font-size: 0;
-      }
-      .iwengx-minimized .iwengx-window-title::before {
-        font-size: 20px;
-      }
-      .iwengx-window-controls {
-        display: flex;
-        gap: 8px;
-        transition: all 0.3s ease;
-      }
-      .iwengx-minimized .iwengx-window-controls {
-        opacity: 0;
-        pointer-events: none;
-      }
-      .iwengx-control-btn {
-        width: 12px;
-        height: 12px;
-        border-radius: 50%;
-        border: none;
-        cursor: pointer;
-        transition: all 0.2s ease;
-      }
-      .iwengx-control-btn:hover {
-        opacity: 0.8;
-        transform: scale(1.1);
-      }
-      .iwengx-minimize-btn {
-        background: transparent;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-weight: bold;
-      }
-      .iwengx-window-content {
-        padding: 12px;
-        height: calc(100% - 48px);
-        background: #fafafa;
-        transition: all 0.3s ease;
-      }
-      .iwengx-minimized .iwengx-window-content {
-        opacity: 0;
-        height: 0;
-        padding: 0;
-        overflow: hidden;
-      }
-      .iwengx-content-desc {
-        font-size: 14px;
-        color: #666;
-        line-height: 1.5;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-      .no-select {
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-      }
-      .iwengx-minimized {
-        cursor: pointer;
-      }
-      .iwengx-minimized:hover {
-        transform: scale(1.1);
-      }
-      .iwengx-minimized.dragging:hover {
-        transform: scale(1.12);
-      }`;
+      display: flex;
+      flex-direction: column;
+      position: fixed;
+      width: 320px;
+      height: 240px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+      overflow: hidden;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 1000;
+    }
+    .iwengx-float-window * {
+      box-sizing: border-box;
+    }
+    .iwengx-float-window.dragging {
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+      transform: scale(1.02);
+      transition: box-shadow 0.2s ease, transform 0.2s ease;
+    }
+    .iwengx-float-window.iwengx-minimized {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+    }
+    .iwengx-float-window a {
+      color: inherit;
+      text-decoration: underline;
+    }
+    .iwengx-float-window a:visited {
+      color: inherit;
+    }
+    .iwengx-window-header {
+      background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+      color: white;
+      padding: 12px 16px;
+      cursor: move;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+    .iwengx-window-header:hover {
+      background: linear-gradient(135deg, #43a3f5 0%, #00e8f5 100%);
+    }
+    .iwengx-minimized .iwengx-window-header {
+      padding: 0;
+      height: 45px;
+      justify-content: center;
+      border-radius: 50%;
+    }
+    .iwengx-window-title {
+      font-weight: 600;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+    }
+    .iwengx-minimized .iwengx-window-title {
+      font-size: 0;
+    }
+    .iwengx-minimized .iwengx-window-title::before {
+      font-size: 20px;
+    }
+    .iwengx-window-controls {
+      display: flex;
+      gap: 8px;
+      transition: all 0.3s ease;
+    }
+    .iwengx-minimized .iwengx-window-controls {
+      opacity: 0;
+      pointer-events: none;
+    }
+    .iwengx-control-btn {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .iwengx-control-btn:hover {
+      opacity: 0.8;
+      transform: scale(1.1);
+    }
+    .iwengx-minimize-btn {
+      color: #fff;
+      background: transparent;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .iwengx-window-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding: 12px;
+      width: 100%;
+      height: 100%;
+      background: #fafafa;
+      transition: all 0.3s ease;
+    }
+    .iwengx-minimized .iwengx-window-content {
+      opacity: 0;
+      height: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+    .iwengx-content-desc {
+      font-size: 14px;
+      color: #666;
+      line-height: 1.5;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .iwengx-content-skin{
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      font-size: 14px;
+      color: #666;
+      line-height: 1.5;
+    }
+    .iwengx-content-skin-title {
+      margin: 12px 0 4px 0;
+    }
+    .iwengx-content-skin textarea {
+      flex: 1;
+      width: 100%;
+      height: 100%;
+      color: #333;
+      line-height: 1.5;
+      padding: 8px;
+      border-color: transparent;
+      outline: transparent;
+      resize: none;
+    }
+    .no-select {
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+    .iwengx-minimized {
+      cursor: pointer;
+    }
+    .iwengx-minimized:hover {
+      transform: scale(1.1);
+    }
+    .iwengx-minimized.dragging:hover {
+      transform: scale(1.12);
+    }`;
 
-  class IwengxDraggableWindow {
+  class DraggableWindow {
     constructor(windowElement, headerElement) {
       this.window = windowElement;
       this.header = headerElement;
@@ -184,8 +221,7 @@
     }
 
     init() {
-      // 设置初始位置（屏幕中央）
-      this.centerWindow();
+      this.resetWindowPosition();
 
       // 绑定事件
       this.header.addEventListener("mousedown", this.handleMouseDown.bind(this));
@@ -199,14 +235,17 @@
       this.header.addEventListener("selectstart", (e) => e.preventDefault());
     }
 
-    centerWindow() {
+    /**
+     * 重新设置窗口位置，默认屏幕右下角
+     */
+    resetWindowPosition() {
       const windowWidth = window.innerWidth;
       const windowHeight = window.innerHeight;
       const elementWidth = this.window.offsetWidth;
       const elementHeight = this.window.offsetHeight;
 
-      const left = (windowWidth - elementWidth) / 2;
-      const top = (windowHeight - elementHeight) / 2;
+      const left = windowWidth - elementWidth - 20; // 距离右边20px
+      const top = windowHeight - elementHeight - 20; // 距离底部
 
       this.window.style.left = left + "px";
       this.window.style.top = top + "px";
@@ -214,7 +253,7 @@
 
     handleMouseDown(e) {
       this.isDragging = true;
-      this.hasDragged = false; // 重置拖拽状态
+      this.hasDragged = false;
 
       // 记录鼠标按下时的位置和窗口位置
       this.startX = e.clientX;
@@ -290,17 +329,15 @@
       this.isMinimized = !this.isMinimized;
 
       if (this.isMinimized) {
-        // 最小化：缩小到 45x45
         this.window.classList.add("iwengx-minimized");
       } else {
-        // 恢复：回到原始大小
         this.window.classList.remove("iwengx-minimized");
       }
 
-      // 确保窗口不会超出屏幕范围
+      // 等待动画完成，确保窗口不会超出屏幕范围
       setTimeout(() => {
         this.constrainToScreen();
-      }, 300); // 等待动画完成
+      }, 300);
     }
 
     constrainToScreen() {
@@ -321,29 +358,174 @@
     }
   }
 
-  // 全局变量存储窗口实例
-  let iwengxDraggableWindow;
-
-  document.body.insertAdjacentHTML("beforeend", operationWindowHTML);
-  GM_addStyle(operationWindowCSS);
-
-  // 初始化拖拽功能
-  const iwengxFloatWindow = document.getElementById("iwengxFloatWindow");
-  const iwengxWindowHeader = document.getElementById("iwengxWindowHeader");
-  const iwengxControlBtn = document.getElementById("iwengxControlBtn");
-
-  iwengxDraggableWindow = new IwengxDraggableWindow(iwengxFloatWindow, iwengxWindowHeader);
-
-  iwengxControlBtn.addEventListener("click", () => {
-    if (iwengxDraggableWindow) {
-      iwengxDraggableWindow.toggleMinimize();
+  class BaseStrategy {
+    init() {
+      this.codeTextArea = document.getElementById("iwengxSkinCode");
+      this.codeTitle = document.getElementById("iwengxContentSkinTitle");
     }
-  });
 
-  // 响应式处理
-  unsafeWindow.addEventListener("resize", () => {
-    if (iwengxDraggableWindow) {
-      iwengxDraggableWindow.constrainToScreen();
+    copySkinCodeToClipboard() {
+      const skinCode = this.codeTextArea.value.trim();
+      GM_setClipboard(skinCode, "text", () => {
+        this.codeTitle.innerText = "饰品代码（复制成功√）";
+        setTimeout(() => {
+          this.codeTitle.innerText = "饰品代码（Ctrl + Alt + C 快速复制代码）";
+        }, 1000);
+        this.copySuccessCallback();
+      });
     }
-  });
+
+    copySuccessCallback() {}
+
+    run() {}
+  }
+
+  /**
+   * 网易 Buff 策略
+   */
+  class Buff163Strategy extends BaseStrategy {
+    constructor() {
+      super();
+      this.attrName = "data-asset-info";
+      this.currentTr = null;
+    }
+
+    findTrInfoValue(el) {
+      if (!el) return null;
+      if (el.tagName === "TR" && el.attributes.hasOwnProperty(this.attrName)) {
+        this.currentTr = el;
+        return JSON.parse(el.attributes.getNamedItem(this.attrName).value);
+      }
+      return this.findTrInfoValue(el.parentNode);
+    }
+
+    onMouseMove = throttle((e) => {
+      this.skinInfo = this.findTrInfoValue(e.target);
+      this.getSkinCode();
+    }, 100);
+
+    // 拼接饰品代码
+    getSkinCode() {
+      if (!this.skinInfo) return "";
+      const {
+        info: { paintindex, paintseed },
+        paintwear,
+      } = this.skinInfo;
+
+      const copyValue = `sm_skin knife_m9_bayonet ${paintindex} ${paintwear} ${paintseed} 0 0 0 0 0 0 0 0`;
+      this.codeTextArea.value = copyValue;
+    }
+
+    copySuccessCallback() {
+      if (this.currentTr) {
+        this.currentTr.style.background = "antiquewhite";
+      }
+    }
+
+    run() {
+      document.addEventListener("mousemove", this.onMouseMove);
+    }
+  }
+
+  /**
+   * 悠悠有品策略
+   */
+  class YouPinStrategy extends BaseStrategy {
+    run() {
+      console.log("Running script for b.com", this.codeTextArea);
+    }
+  }
+
+  // 确定当前 URL 并选择相应的策略
+  function determineStrategy() {
+    console.log("determineStrategy");
+
+    const currentUrl = unsafeWindow.location.href;
+
+    if (currentUrl.includes("buff.163.com")) {
+      return new Buff163Strategy();
+    }
+    //
+    else if (currentUrl.includes("youpin898.com")) {
+      return new YouPinStrategy();
+    }
+    //
+    else {
+      return null;
+    }
+  }
+
+  const strategy = determineStrategy();
+
+  let draggableWindow;
+
+  if (strategy) {
+    // 初始化操作界面
+    GM_addStyle(operationWindowCSS);
+    document.body.insertAdjacentHTML("beforeend", operationWindowHTML);
+    const controlBtn = document.getElementById("iwengxControlBtn");
+    controlBtn.addEventListener("click", () => {
+      if (draggableWindow) {
+        draggableWindow.toggleMinimize();
+      }
+    });
+
+    // 初始化拖拽功能
+    const floatWindow = document.getElementById("iwengxFloatWindow");
+    const windowHeader = document.getElementById("iwengxWindowHeader");
+    draggableWindow = new DraggableWindow(floatWindow, windowHeader);
+
+    // 响应式处理
+    unsafeWindow.addEventListener("resize", () => {
+      if (draggableWindow) {
+        draggableWindow.constrainToScreen();
+      }
+    });
+
+    unsafeWindow.addEventListener("keydown", (e) => {
+      const { ctrlKey, metaKey, altKey, keyCode } = e;
+      // 复制
+      if (ctrlKey | metaKey && altKey && keyCode === 67) {
+        strategy.copySkinCodeToClipboard();
+      }
+    });
+
+    // 执行策略
+    strategy.init();
+    strategy.run();
+  }
+  //
+  else {
+    alert("MoeUB 第三方辅助工具：在该页面没有找到可用的脚本");
+  }
+
+  /**
+   * 简易的节流
+   */
+  function throttle(func, wait) {
+    let timeout;
+    let previous = 0;
+
+    function throttled(...args) {
+      const now = Date.now();
+      const remaining = wait - (now - previous);
+
+      if (remaining <= 0 || remaining > wait) {
+        if (timeout) {
+          clearTimeout(timeout);
+          timeout = null;
+        }
+        previous = now;
+        func.apply(this, args);
+      } else if (!timeout) {
+        timeout = setTimeout(() => {
+          previous = Date.now();
+          timeout = null;
+          func.apply(this, args);
+        }, remaining);
+      }
+    }
+
+    return throttled;
+  }
 })();
