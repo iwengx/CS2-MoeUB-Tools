@@ -12,7 +12,7 @@
 // @grant        GM_setValue
 // @grant        GM_getValue
 // @grant        unsafeWindow
-// @license MIT
+// @license Apache-2.0
 // @downloadURL https://update.greasyfork.org/scripts/544393/MoeUB%20%E7%AC%AC%E4%B8%89%E6%96%B9%E8%BE%85%E5%8A%A9%E5%B7%A5%E5%85%B7.user.js
 // @updateURL https://update.greasyfork.org/scripts/544393/MoeUB%20%E7%AC%AC%E4%B8%89%E6%96%B9%E8%BE%85%E5%8A%A9%E5%B7%A5%E5%85%B7.meta.js
 // ==/UserScript==
