@@ -6,7 +6,7 @@ MoeUB 第三方辅助工具，在 悠悠有品、网易 Buff 网页下提供饰�
 
 1. 下载并安装浏览器油猴插件 [Tampermonkey](https://www.tampermonkey.net/)
 
-2. 安装脚本 [CS2-MoeUB-Tools by GreasyFork](https://greasyfork.org/)
+2. 安装当前脚本 [CS2-MoeUB-Tools by GreasyFork](https://greasyfork.org/zh-CN/scripts/544393-moeub-%E7%AC%AC%E4%B8%89%E6%96%B9%E8%BE%85%E5%8A%A9%E5%B7%A5%E5%85%B7)
 
 3. 打开交易平台网页，左侧出现 工具栏 代表安装成功
 
