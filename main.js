@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MoeUB 第三方辅助工具
 // @namespace    https://github.com/iwengx
-// @version      1.0.0
+// @version      1.1.0
 // @description  MoeUB 第三方辅助工具，在 悠悠有品、网易Buff 网页下提供饰品代码的复制功能。更多功能待开发中，如果您有更好的想法欢迎留言。
 // @author       iwengx
 // @match        https://www.youpin898.com/market/*
