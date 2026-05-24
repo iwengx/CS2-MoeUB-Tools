@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         MoeUB 第三方辅助工具
 // @namespace    https://github.com/iwengx
-// @version      1.2.0
-// @description  MoeUB 第三方辅助工具，在 悠悠有品、网易Buff 网页下提供饰品代码的复制功能。更多功能待开发中，如果您有更好的想法欢迎留言。
+// @version      1.2.1
+// @description  MoeUB 第三方辅助工具是一款CS2饰品检视代码复制工具，支持在悠悠有品、网易Buff网页中一键复制饰品代码。更多功能正在开发，欢迎您留言提供创意想法。项目完全开源，也欢迎热爱CS2的你一起加入维护，让工具变得更好用！
 // @author       iwengx
 // @match        https://www.youpin898.com/market/*
 // @match        https://buff.163.com/goods/*
