@@ -11485,7 +11485,7 @@
 
           try {
             name = uuSkinPopover.querySelector(".goods-title___DPu2Y").textContent;
-            seed = infos[0].children[1].textContent;
+            seed = parseInt(infos[0].children[1].textContent);
             index = infos[1].children[1].firstChild.textContent;
             wear = infos[2].children[1].textContent;
           } catch {}
